@@ -135,7 +135,7 @@ titanic-survival-prediction/
 
 ## ▶️ How to Run the Project
 ```bash
-git clone https://github.com/yourusername/titanic-survival-prediction.git
+git clone https://github.com/vikas24/titanic-survival-prediction.git
 cd titanic-survival-prediction
 pip install -r requirements.txt
 python src/train.py
