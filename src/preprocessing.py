@@ -1,3 +1,15 @@
+"""
+Data preprocessing module for Titanic Survival Prediction.
+
+This module handles:
+- Missing value imputation
+- Categorical encoding
+- Feature scaling
+- Saving processed dataset for reproducibility
+"""
+
+
+
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
@@ -23,6 +35,7 @@ def preprocess_data(input_path, output_path):
     X = df.drop("Survived", axis=1)
     y = df["Survived"]
 
+    # Scaling features is important for Logistic Regression performance
     # Feature scaling
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
