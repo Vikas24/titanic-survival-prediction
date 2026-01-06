@@ -1,3 +1,13 @@
+"""
+Main execution script for Titanic Survival Prediction project.
+
+This script:
+- Runs data preprocessing
+- Trains the machine learning model
+- Evaluates model performance
+"""
+
+
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
@@ -21,6 +31,7 @@ def main():
     y = df["Survived"]
 
     # Step 3: Train-test split
+    # Stratified split is used to preserve class distribution
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
@@ -33,6 +44,7 @@ def main():
     model = train_model(X_train, y_train)
 
     # Step 5: Evaluate model
+    # Final evaluation is performed on unseen test data
     evaluate_model(model, X_test, y_test, X_train, y_train)
 
 
