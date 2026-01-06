@@ -15,9 +15,16 @@ from preprocessing import preprocess_data
 from model import train_model
 from evaluation import evaluate_model
 
+import os
 
-RAW_DATA_PATH = "../data/raw/train.csv"
-PROCESSED_DATA_PATH = "../data/processed/processed_data.csv"
+# Resolve project root directory dynamically
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+
+
+RAW_DATA_PATH = os.path.join(PROJECT_ROOT, "data", "raw", "train.csv")
+PROCESSED_DATA_PATH = os.path.join(PROJECT_ROOT, "data", "processed", "processed_data.csv")
+
 
 
 def main():
