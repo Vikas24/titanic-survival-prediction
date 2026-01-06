@@ -9,9 +9,15 @@ Includes:
 - Cross-validation performance evaluation
 """
 
-
+import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+RESULTS_DIR = os.path.join(PROJECT_ROOT, "results")
+
+os.makedirs(RESULTS_DIR, exist_ok=True)
+
 
 from sklearn.metrics import (
     accuracy_score,
@@ -52,7 +58,7 @@ def evaluate_model(model, X_test, y_test, X_train, y_train):
     plt.xlabel("Predicted")
     plt.ylabel("Actual")
     plt.title("Confusion Matrix")
-    plt.savefig("../results/confusion_matrix.png")
+    plt.savefig(os.path.join(RESULTS_DIR, "confusion_matrix.png"))
     plt.show()
 
     # -------------------------
@@ -69,7 +75,7 @@ def evaluate_model(model, X_test, y_test, X_train, y_train):
     plt.ylabel("True Positive Rate")
     plt.title("ROC Curve")
     plt.legend()
-    plt.savefig("../results/roc_curve.png")
+    plt.savefig(os.path.join(RESULTS_DIR, "roc_curve.png"))
     plt.show()
 
     # -------------------------
@@ -85,7 +91,7 @@ def evaluate_model(model, X_test, y_test, X_train, y_train):
     plt.ylabel("Precision")
     plt.title("Precision–Recall Curve")
     plt.legend()
-    plt.savefig("../results/precision_recall_curve.png")
+    plt.savefig(os.path.join(RESULTS_DIR, "precision_recall_curve.png"))
     plt.show()
 
     # -------------------------
@@ -98,7 +104,7 @@ def evaluate_model(model, X_test, y_test, X_train, y_train):
     plt.ylabel("Score")
     plt.title("Precision–Recall vs Threshold")
     plt.legend()
-    plt.savefig("../results/precision_recall_threshold.png")
+    plt.savefig(os.path.join(RESULTS_DIR, "precision_recall_threshold.png"))
     plt.show()
 
     # -------------------------

@@ -25,8 +25,8 @@ def preprocess_data(input_path, output_path):
     df.drop(["PassengerId", "Name", "Ticket", "Cabin"], axis=1, inplace=True)
 
     # Handle missing values
-    df["Age"].fillna(df["Age"].median(), inplace=True)
-    df["Embarked"].fillna(df["Embarked"].mode()[0], inplace=True)
+    df["Age"] = df["Age"].fillna(df["Age"].median())
+    df["Embarked"] = df["Embarked"].fillna(df["Embarked"].mode()[0])
 
     # Encode categorical variables
     df = pd.get_dummies(df, drop_first=True)
