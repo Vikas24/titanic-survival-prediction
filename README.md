@@ -27,7 +27,7 @@ titanic-survival-prediction/
 ├── results/                # Saved evaluation plots
 ├── requirements.txt
 └── README.md
-
+```
 ## 🔍 Exploratory Data Analysis (EDA)
 
 **Key insights from data exploration:**
