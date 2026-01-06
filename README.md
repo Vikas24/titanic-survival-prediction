@@ -1,147 +1,118 @@
-# 🚢 Titanic Survival Prediction using Machine Learning
+🛳️ Titanic Survival Prediction
 
-## 📌 Project Overview
-This project predicts whether a passenger survived the Titanic disaster using
-Machine Learning techniques.  
-It demonstrates a **complete ML workflow** including data analysis,
-preprocessing, class imbalance handling, model training, hyperparameter tuning,
-and detailed evaluation.
+An end-to-end machine learning project that predicts passenger survival on the Titanic dataset using Logistic Regression, with a strong focus on reproducibility, evaluation, and clean project structure.
 
-The project is structured following **industry best practices** for ML projects
-using Git, GitHub, and modular Python scripts.
-
----
-
-## 🧠 Key Concepts Implemented
-- Exploratory Data Analysis (EDA)
-- Data Cleaning & Feature Engineering
-- Logistic Regression
-- Handling Class Imbalance using SMOTE
-- Hyperparameter Tuning with GridSearchCV
-- Cross-Validation using ROC-AUC
-- Model Evaluation:
-  - Confusion Matrix
-  - ROC Curve
-  - Precision–Recall Curve
-  - Threshold Analysis
-
----
-
-## 🛠️ Tech Stack
-- Python
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Scikit-learn
-- imbalanced-learn (SMOTE)
-- Jupyter Notebook
-- Git & GitHub
-
----
-
-## 📂 Dataset
-- **Source:** Kaggle – Titanic Dataset
-- **Target Variable:** `Survived`
-- **Features Used:**
-  - Pclass
-  - Sex
-  - Age
-  - Fare
-  - SibSp
-  - Parch
-  - Embarked
-
----
-
-## 📊 Exploratory Data Analysis (EDA)
-EDA was performed to understand:
-- Survival distribution
-- Gender-wise survival comparison
-- Passenger class impact on survival
-- Age distribution
-- Missing values and correlations
-
-EDA notebooks are available in the `notebooks/` folder.
-
----
-
-## ⚙️ Data Preprocessing
-- Dropped irrelevant columns
-- Handled missing values
-- Encoded categorical features
-- Feature scaling using StandardScaler
-- Saved processed dataset for reproducibility
-
----
-
-## 🤖 Model Training
-- Algorithm: **Logistic Regression**
-- Train-test split with stratification
-- Hyperparameter tuning using **GridSearchCV**
-- Evaluation metric: **ROC-AUC**
-
----
-
-## ⚖️ Handling Class Imbalance
-The dataset is imbalanced.
-**SMOTE (Synthetic Minority Oversampling Technique)** was applied **only on the training data**
-to avoid data leakage and improve recall and F1-score.
-
----
-
-## 🔁 Cross-Validation
-- 5-fold cross-validation
-- ROC-AUC used as the scoring metric
-- Performance stability verified across folds
-
----
-
-## 📈 Model Evaluation
-- Accuracy, Precision, Recall, F1-score
-- Confusion Matrix
-- ROC Curve
-- Precision–Recall Curve
-- Threshold vs Precision–Recall analysis
-
-Evaluation plots are saved in the `results/` folder.
-
----
-
-## 📁 Project Structure
+📂 Project Structure
 titanic-survival-prediction/
 │
 ├── data/
-│ ├── raw/
-│ └── processed/
+│   ├── raw/                # Original dataset
+│   └── processed/          # Preprocessed dataset
 │
 ├── notebooks/
-│ ├── 01_eda.ipynb
-│ ├── 02_preprocessing.ipynb
-│ └── 03_model_training.ipynb
+│   ├── 01_eda.ipynb
+│   ├── 02_preprocessing.ipynb
+│   └── 03_model_training.ipynb
 │
 ├── src/
-│ ├── preprocessing.py
-│ ├── model.py
-│ ├── evaluation.py
-│ └── train.py
+│   ├── preprocessing.py
+│   ├── model.py
+│   ├── evaluation.py
+│   └── train.py
 │
-├── results/
-│
-├── README.md
+├── results/                # Evaluation plots
 ├── requirements.txt
-└── .gitignore
+└── README.md
 
+🔍 Exploratory Data Analysis (EDA)
 
----
+Key insights derived from data exploration:
 
-## ▶️ How to Run the Project
-```bash
-git clone https://github.com/vikas24/titanic-survival-prediction.git
-cd titanic-survival-prediction
-pip install -r requirements.txt
-python src/train.py
+Female passengers had significantly higher survival rates than males
 
-👤 Author
+Passengers in higher classes (Pclass 1) had better survival chances
 
-Vikas Kumar
-B.Tech Computer Science
-Interested in Data Science & Machine Learning
+Age and Fare showed meaningful relationships with survival
+
+Missing values in Age and Embarked required preprocessing
+
+⚙️ Data Preprocessing
+
+Missing Age values filled using median
+
+Missing Embarked values filled using mode
+
+Categorical features encoded using one-hot encoding
+
+Feature scaling applied for Logistic Regression
+
+SMOTE used to address class imbalance (training data only)
+
+🤖 Model Training
+
+Algorithm: Logistic Regression
+
+Hyperparameter tuning using GridSearchCV
+
+Best parameters selected based on cross-validated performance
+
+Best Hyperparameters:
+
+C = 0.1
+penalty = l2
+solver = liblinear
+
+📊 Model Evaluation
+Metrics Used
+
+Accuracy
+
+Precision, Recall, F1-Score
+
+ROC-AUC
+
+Precision–Recall Curve
+
+Cross-Validation ROC-AUC
+
+Results Summary
+
+Accuracy: ~80%
+
+Mean Cross-Validation ROC-AUC: ~0.85
+
+Precision–Recall analysis provided better insight into minority class performance
+
+SMOTE improved recall without significantly reducing precision
+
+Model performance was stable across folds
+
+📈 Evaluation Visualizations
+
+The following plots are generated and saved in the results/ directory:
+
+Confusion Matrix
+
+ROC Curve
+
+Precision–Recall Curve
+
+Precision–Recall vs Threshold Curve
+
+🧠 Environment-Independent Execution
+
+This project is designed to run seamlessly across different environments:
+
+Local machine (VS Code)
+
+Google Colab
+
+Any Unix-based system
+
+Key design decisions:
+
+Dynamic project root resolution using __file__
+
+No hard-coded paths
+
+Automatic creation of required directories
