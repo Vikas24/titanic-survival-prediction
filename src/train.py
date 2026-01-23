@@ -54,6 +54,23 @@ def main():
     # Final evaluation is performed on unseen test data
     evaluate_model(model, X_test, y_test, X_train, y_train)
 
+    import pickle
+
+    model_dir = os.path.join(PROJECT_ROOT, "model")
+    os.makedirs(model_dir, exist_ok=True)
+
+    model_path = os.path.join(model_dir, "model.pkl")
+
+    with open(model_path, "wb") as f:
+        pickle.dump(model, f)
+
+    print(f"✅ Model saved successfully at: {model_path}")
+
+
 
 if __name__ == "__main__":
     main()
+
+
+
+

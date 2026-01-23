@@ -40,6 +40,17 @@ def preprocess_data(input_path, output_path):
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
+    # Save scaler
+    import pickle
+    import os
+
+    scaler_path = os.path.join(os.path.dirname(output_path), "scaler.pkl")
+    with open(scaler_path, "wb") as f:
+        pickle.dump(scaler, f)
+
+    print(f"✅ Scaler saved at: {scaler_path}")
+
+
     processed_df = pd.DataFrame(X_scaled, columns=X.columns)
     processed_df["Survived"] = y.values
 
