@@ -1,11 +1,17 @@
 # 🚢 Titanic Survival Prediction
+![Deployment](https://img.shields.io/badge/Deployment-Live-brightgreen)
+![Platform](https://img.shields.io/badge/Platform-Render-blue)
+![Framework](https://img.shields.io/badge/Framework-Streamlit-red)
 
 An end-to-end machine learning project to predict passenger survival on the Titanic dataset using **Logistic Regression**, with emphasis on **clean code**, **robust evaluation**, and **environment-independent execution**.
-## 🚀 Live Demo
+---
 
-This project is deployed as an interactive web application using **Streamlit Cloud**.
+## 🚀 Live Deployment
 
-👉 **Live App:** https://vikas24-titanic-survival-prediction.streamlit.app  
+The machine learning application is deployed as a real-time web app using **Streamlit** and **Render**.
+
+👉 **Live Demo:**  
+https://titanic-survival-prediction1.onrender.com 
 
 Users can enter passenger details (class, age, sex, fare, etc.) and get real-time survival predictions along with probability scores.
 
@@ -130,17 +136,21 @@ To run the Streamlit app on your local machine:
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run streamli_app.py
 ```
 ## 📦 Deployment
 
-The application is deployed using **Streamlit Cloud** directly from this GitHub repository.
+- Platform: Render (Free Tier)
+- Framework: Streamlit
+- Model: Logistic Regression
+- Python Version: 3.10
+- Inference: Real-time user input prediction
 
-Deployment steps:
-1. Push code to GitHub  
-2. Connect repository on Streamlit Cloud  
-3. Select `app.py` as the main file  
-4. Deploy and share the public URL  
+The deployed app allows users to enter passenger details and instantly receive:
 
-This enables easy access to the model through a browser without any local setup.
+- Survival prediction (Yes / No)  
+- Survival probability  
+
+This demonstrates an end-to-end pipeline from **training → model persistence → cloud deployment → web inference**.
+
 
