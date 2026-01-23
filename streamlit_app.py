@@ -94,8 +94,9 @@ if predict_btn:
     input_df = pd.get_dummies(input_df, drop_first=True)
 
     # Align with training columns
-    training_columns = scaler.feature_names_in_
+    training_columns = model.feature_names_in_
     input_df = input_df.reindex(columns=training_columns, fill_value=0)
+
 
     # Scale
     input_scaled = scaler.transform(input_df)
